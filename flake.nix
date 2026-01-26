@@ -39,6 +39,7 @@
     homeConfigurations = {
       "ulysses" = mkHome "ulysses";
       "xiyao" = mkHome "xiyao";
+      "admin" = mkHome "admin";
     };
 
     formatter.${system} = pkgs.alejandra;
