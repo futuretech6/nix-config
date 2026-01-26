@@ -16,6 +16,7 @@
     dust
     nodePackages.prettier
     htop
+    n-m3u8dl-re
   ];
 
   programs.home-manager.enable = true;
