@@ -1,0 +1,33 @@
+{
+  config,
+  pkgs,
+  ...
+}: {
+  home.homeDirectory = "/home/${config.home.username}";
+  home.stateVersion = "24.05";
+
+  home.packages = with pkgs; [
+    gitui
+    bottom
+    bat
+    erdtree
+    pre-commit
+    autojump
+    dust
+    nodePackages.prettier
+    htop
+  ];
+
+  programs.home-manager.enable = true;
+
+  home.activation.setupBashrc = config.lib.dag.entryAfter ["writeBoundary"] ''
+        if ! grep -q "autojump.sh" $HOME/.bashrc 2>/dev/null; then
+          cat >> $HOME/.bashrc << 'EOF'
+
+    if [ -f "$HOME/.nix-profile/etc/profile.d/autojump.sh" ]; then
+      . "$HOME/.nix-profile/etc/profile.d/autojump.sh"
+    fi
+    EOF
+        fi
+  '';
+}
