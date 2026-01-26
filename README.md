@@ -11,7 +11,7 @@ https://github.com/futuretech6/setup/blob/master/nix.md
 ### 克隆配置
 
 ```bash
-git clone https://github.com/futuretech6/nix-config.git ~/.config/home-manager
+git clone git@github.com:futuretech6/nix-config.git ~/.config/home-manager
 cd ~/.config/home-manager
 ```
 
