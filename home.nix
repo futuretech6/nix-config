@@ -17,6 +17,7 @@
     nodePackages.prettier
     htop
     n-m3u8dl-re
+    pay-respects
     (let
       info =
         {
