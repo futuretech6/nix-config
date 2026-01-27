@@ -18,7 +18,7 @@ cd ~/.config/home-manager
 ### 首次应用配置
 
 ```bash
-nix run home-manager/master -- switch --flake ~/.config/home-manager#$(users)
+nix run home-manager/master -- switch --flake ~/.config/home-manager#$(whoami)
 
 # 安装 pre-commit hooks
 nix develop -c pre-commit install
@@ -29,7 +29,7 @@ nix develop -c pre-commit install
 修改配置文件或更新依赖后：
 
 ```bash
-home-manager switch --flake ~/.config/home-manager#$(users)
+home-manager switch --flake ~/.config/home-manager#$(whoami)
 ```
 
 ## 临时安装软件包
