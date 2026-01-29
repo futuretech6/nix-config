@@ -45,6 +45,11 @@
       src = ./.;
       hooks = {
         alejandra.enable = true;
+        prettier = {
+          enable = true;
+          package = nixpkgs-23-05.legacyPackages.${system}.nodePackages.prettier;
+          files = "README\\.md$";
+        };
       };
     };
   in {
