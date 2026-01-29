@@ -22,11 +22,11 @@
       info =
         {
           "x86_64-linux" = {
-            platform = "Linux-gnu-x86_64";
-            hash = "sha256-xDWoFBniVhIEypNoi/WFeBWY5D8pEYUx2zLGA0Fdbnc=";
+            platform = "Linux-musl-x86_64";
+            hash = "sha256-Glh7+EZmvD32RkLA2pLODW4gF4c5LFlo0K3fzoMVTkA=";
           };
           "aarch64-linux" = {
-            platform = "Linux-gnu-arm64";
+            platform = "Linux-musl-arm64";
             hash = "";
           };
           "x86_64-darwin" = {
