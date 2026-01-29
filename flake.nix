@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nixpkgs-23-05.url = "github:nixos/nixpkgs/nixos-23.05";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -15,6 +16,7 @@
 
   outputs = {
     nixpkgs,
+    nixpkgs-23-05,
     home-manager,
     pre-commit-hooks,
     ...
@@ -34,6 +36,9 @@
         modules = [
           ./home.nix
           {home.username = username;}
+          {
+            _module.args.pkgs-23-05 = nixpkgs-23-05.legacyPackages.${system};
+          }
         ];
       };
     pre-commit-check = pre-commit-hooks.lib.${system}.run {

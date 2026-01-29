@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  pkgs-23-05,
   ...
 }: {
   home.homeDirectory = "/home/${config.home.username}";
@@ -14,7 +15,7 @@
     pre-commit
     autojump
     dust
-    nodePackages.prettier
+    pkgs-23-05.nodePackages.prettier
     htop
     n-m3u8dl-re
     pay-respects
