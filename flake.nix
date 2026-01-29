@@ -20,7 +20,14 @@
     ...
   }: let
     system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages.${system};
+    pkgs = import nixpkgs {
+      inherit system;
+      overlays = [
+        (final: prev: {
+          mihomo-tui = final.callPackage ./pkgs/mihomo-tui.nix {};
+        })
+      ];
+    };
     mkHome = username:
       home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
