@@ -1,47 +1,41 @@
 # Nix Home Manager Configuration
 
-个人 Nix + Home Manager + Flake 配置仓库
+Personal Nix + Home Manager + Flake configuration repository
 
-## 前置要求
+## Prerequisites
 
 https://github.com/futuretech6/setup/blob/master/nix.md
 
-## 使用方法
+## Usage
 
-### 克隆配置
+### Clone
 
 ```bash
 git clone git@github.com:futuretech6/nix-config.git ~/.config/home-manager
-cd ~/.config/home-manager
 ```
 
-### 首次应用配置
+### Initial Setup
 
 ```bash
-nix run home-manager/master -- switch --flake ~/.config/home-manager#$(whoami)
+nix run home-manager -- switch --flake ~/.config/home-manager#$(whoami)
 
-# 安装 pre-commit hooks
-nix develop -c pre-commit install
+# Install pre-commit hooks
+cd ~/.config/home-manager && nix develop -c pre-commit install
 ```
 
-### 后续更新配置
+### Update Dependencies
 
-修改配置文件或更新依赖后：
+To update flake.lock:
 
 ```bash
+nix flake update ~/.config/home-manager
 home-manager switch --flake ~/.config/home-manager#$(whoami)
 ```
 
-## 临时安装软件包
+### Update Configuration
 
-Home Manager 管理的是声明式配置，如需临时安装软件包：
-
-```bash
-nix profile install nixpkgs#package-name
-```
-
-或一次性运行：
+After modifying configuration files:
 
 ```bash
-nix run nixpkgs#package-name --
+home-manager switch --flake ~/.config/home-manager#$(whoami)
 ```
