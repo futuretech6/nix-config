@@ -52,12 +52,9 @@
         };
       };
     };
+    users = ["ulysses" "xiyao" "admin" "root"];
   in {
-    homeConfigurations = {
-      "ulysses" = mkHome "ulysses";
-      "xiyao" = mkHome "xiyao";
-      "admin" = mkHome "admin";
-    };
+    homeConfigurations = nixpkgs.lib.genAttrs users mkHome;
 
     formatter.${system} = pkgs.alejandra;
 
